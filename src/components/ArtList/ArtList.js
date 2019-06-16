@@ -6,6 +6,16 @@ import ArtItem from '../ArtItem/ArtItem';
 //router
 import { Link } from 'react-router-dom';
 
+//material ui
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button';
+
+const styles = {
+    grid: {
+        maxWidth: '90%',
+        margin: "20px auto",
+    }
+}
 
 class ArtList extends Component {
 
@@ -30,13 +40,10 @@ class ArtList extends Component {
     render() {
         return(
             <div>
-                <h2>Art List</h2>
-                <ul>                
-                    {this.props.reduxState.paintingListReducer.map( painting => <ArtItem key={painting.id} painting={painting} />)}
-                </ul>
-
+                <Grid container style={styles.grid} spacing={3}>
+                        {this.props.reduxState.paintingListReducer.map( painting => <ArtItem key={painting.id} painting={painting} />)}
+                </Grid>                
                 <br />
-
                 {this.props.reduxState.cartReducer.length === 0? 
                         0 
                         : 

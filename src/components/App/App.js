@@ -11,26 +11,45 @@ import PurchaseSummary from '../PurchaseSummary/PurchaseSummary';
 import Blogs from '../Blogs/Blogs';
 import Header from '../Header/Header';
 
+//material ui components
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 //router
 import { HashRouter as Router, Route } from 'react-router-dom';
 
+//define theme
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ef5350'
+    },
+    secondary: {
+      main: '#607d8b'
+    },
+    error: {
+      main: '#c62828'
+    }
+  },
+});
+
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Router>
-          <Route path="/" exact component={Home} />
-          <Route path="/artlist" exact component={ArtList} />
-          <Route path="/cart" exact component={Cart} />
-          <Route path="/customerinfo" exact component={CustomerInfo} />
-          <Route path="/summary" exact component={PurchaseSummary} />
-          <Route path="/blogs" exact component={Blogs} />
-
-        </Router>
-
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <div className="App">
+          <Header />
+          <Router>
+            <Route path="/" exact={true} component={Home} />
+            <Route path="/artlist" exact component={ArtList} />
+            <Route path="/cart" exact component={Cart} />
+            <Route path="/customerinfo" exact component={CustomerInfo} />
+            <Route path="/summary" exact component={PurchaseSummary} />
+            <Route path="/blogs" exact component={Blogs} />
+          </Router>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
