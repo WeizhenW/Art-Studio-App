@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import ArtItem from '../ArtItem/ArtItem';
 
 class ArtList extends Component {
 
@@ -26,9 +27,10 @@ class ArtList extends Component {
         return(
             <div>
                 <h2>Art List</h2>
+                <ul>                
+                    {this.props.reduxState.paintingListReducer.map( painting => <ArtItem key={painting.id} painting={painting} />)}
+                </ul>
 
-                {/* {this.props.reduxState.paintingListReducer.map( paint => <ArtItem />)} */}
-                {JSON.stringify(this.props.reduxState.paintingListReducer, null, 2)}
             </div>
         )
     }
