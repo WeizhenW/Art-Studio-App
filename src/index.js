@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 //logger
 import { logger } from 'redux-logger';
 
-//define reducer
+//define reducers
 const paintingListReducer = (state=[], action) => {
     if(action.type === 'SET_PAINTING_LIST') {
         return action.payload;
@@ -18,12 +18,19 @@ const paintingListReducer = (state=[], action) => {
     return state;
 }
 
+const cartReducer = (state=[], action) => {
+    if(action.type === 'ADD_TO_CART') {
+        return [...state, action.payload];
+    }
+    return state;
+}
+
 const storeInstance = createStore(
     combineReducers({
         paintingListReducer,
+        cartReducer,
     }),
     applyMiddleware(logger),
 )
-
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
