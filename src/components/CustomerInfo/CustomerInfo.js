@@ -4,6 +4,35 @@ import { connect } from 'react-redux';
 //router
 import { Link } from 'react-router-dom';
 
+//material ui
+import Grid from '@material-ui/core/Grid';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput'
+import Button from '@material-ui/core/Button';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
+
+const styles = {
+    container: {
+        // display: "flex",
+        // flexWrap: "wrap",
+        maxWidth: "90%",
+        margin: "0 auto",
+    },
+    formControl: {
+        width: 300,
+        margin: "30px 20px",
+    },
+    nextPage: {
+        height: "50px",
+        maxWidth: "200px",
+        marginBottom: "100px",
+    },
+    
+}
 class CustomerInfo extends Component {
 
     handleChangeFor = (propertyName) => (event) => {
@@ -16,23 +45,59 @@ class CustomerInfo extends Component {
     }
 
     render() {
-        return(
-            <div>
-                <input onChange={this.handleChangeFor('name')} placeholder="customer name" />
-                <input onChange={this.handleChangeFor('street')} placeholder="street" />
-                <input onChange={this.handleChangeFor('city')} placeholder="city" />
-                <input onChange={this.handleChangeFor('state')} placeholder="state" />
-                <input onChange={this.handleChangeFor('zip')} placeholder="zip" />
-                <br />
-                <label>Standard shipping</label>
-                <input name="type" type="radio" value="standard" onClick={this.handleChangeFor('type')}></input>
-                <br />
-                <label>Express shipping</label>
-                <input name="type" type="radio" value="express" onClick={this.handleChangeFor('type')}></input>
-                <br />
-                <Link to="/summary"><button>Next Step</button></Link> 
+        return (
+            <>
+                <Grid container style={styles.container} spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <FormControl style={styles.formControl}>
+                            <InputLabel htmlFor="name" >Customer Name</InputLabel>
+                            <OutlinedInput
+                                id="id"
+                                onChange={this.handleChangeFor('name')} />
+                        </FormControl>
+                        <FormControl style={styles.formControl} >
+                            <InputLabel htmlFor="street" >Street Address</InputLabel>
+                            <OutlinedInput
+                                id="street"
+                                onChange={this.handleChangeFor('street')} />
+                        </FormControl>
+                        <FormControl style={styles.formControl}>
+                            <InputLabel htmlFor="city" >City</InputLabel>
+                            <OutlinedInput
+                                id="city"
+                                onChange={this.handleChangeFor('city')} />
+                        </FormControl>
+                        <FormControl style={styles.formControl}>
+                            <InputLabel htmlFor="state" >State</InputLabel>
+                            <OutlinedInput
+                                id="state"
+                                onChange={this.handleChangeFor('state')} />
+                        </FormControl>
+                        <FormControl style={styles.formControl}>
+                            <InputLabel htmlFor="zip" >Zip Code</InputLabel>
+                            <OutlinedInput
+                                id="zip"
+                                onChange={this.handleChangeFor('zip')} />
+                        </FormControl>
+                    </Grid>
 
-            </div>
+                    <Grid item xs={12} md={6}>
+                        <FormControl component="fieldset" style={styles.formControl}>
+                            {/* <FormLabel component="legend">Shipping Method:</FormLabel> */}
+                            <RadioGroup
+                                aria-label="Shipping"
+                                name="type"
+                                onChange={this.handleChangeFor('type')}
+                            >
+                                <FormControlLabel value="standard" control={<Radio />} label="Standard Shipping" />
+                                <FormControlLabel value="express" control={<Radio />} label="Express Shipping" />
+                            </RadioGroup>
+                        </FormControl>
+                    </Grid>
+                </Grid>
+                <br />
+                <Link to="/summary"><Button variant="contained" style={styles.nextPage} color="secondary">Next Step</Button></Link>
+            </>
         )
     }
 }
