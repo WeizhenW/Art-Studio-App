@@ -14,6 +14,12 @@ const styles = {
     grid: {
         maxWidth: '90%',
         margin: "20px auto",
+    },
+    nextPage: {
+        height: "50px",
+        maxWidth: "200px",
+        marginBottom: "100px",
+
     }
 }
 
@@ -44,15 +50,15 @@ class ArtList extends Component {
                         {this.props.reduxState.paintingListReducer.map( painting => <ArtItem key={painting.id} painting={painting} />)}
                 </Grid>                
                 <br />
-                {this.props.reduxState.cartReducer.length === 0? 
+                {/* {this.props.reduxState.cartReducer.length === 0? 
                         0 
                         : 
                         this.props.reduxState.cartReducer.reduce((acc, current) => (
                             {price: Number(acc.price) + Number(current.price)})
                         ).price
-                    }
+                    } */}
 
-                <Link to="/cart"><button>Next Step</button></Link> 
+                <Link to="/cart"><Button style={styles.nextPage} variant="contained" color="secondary">Go to Cart</Button></Link> 
 
             </div>
         )
