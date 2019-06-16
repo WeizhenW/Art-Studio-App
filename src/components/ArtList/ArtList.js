@@ -3,6 +3,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import ArtItem from '../ArtItem/ArtItem';
 
+//router
+import { Link } from 'react-router-dom';
+
+
 class ArtList extends Component {
 
     refreshList = () => {
@@ -30,6 +34,8 @@ class ArtList extends Component {
                 <ul>                
                     {this.props.reduxState.paintingListReducer.map( painting => <ArtItem key={painting.id} painting={painting} />)}
                 </ul>
+
+                <Link to="/cart"><button>Next Step</button></Link> 
 
             </div>
         )
