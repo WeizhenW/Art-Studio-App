@@ -15,9 +15,10 @@ class PurchaseSummary extends Component {
                 {this.props.reduxState.customerInfoReducer.state}
                 <br />
                 {this.props.reduxState.customerInfoReducer.zip}
+                <br />
+                {this.props.reduxState.customerInfoReducer.type}
 
                 {this.props.reduxState.cartReducer.map(painting => <CartItem key={painting.id} painting={painting} />)}
-
 
             </div>
         )
