@@ -25,10 +25,18 @@ const cartReducer = (state=[], action) => {
     return state;
 }
 
+const customerInfoReducer = (state={}, action) => {
+    if(action.type === 'SET_CUSTOMER_INFO') {
+        return {...state, ...action.payload};
+    }
+    return state;
+}
+
 const storeInstance = createStore(
     combineReducers({
         paintingListReducer,
         cartReducer,
+        customerInfoReducer,
     }),
     applyMiddleware(logger),
 )
