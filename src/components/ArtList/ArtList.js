@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import ArtItem from '../ArtItem/ArtItem';
+import LeftPanel from '../LeftPanel/LeftPanel';
 
 //router
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 //material ui
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+
 
 const styles = {
     grid: {
@@ -46,12 +50,8 @@ class ArtList extends Component {
     render() {
         return (
             <div>
-                <Grid container style={styles.grid} spacing={2}>
-                    <Grid container item xs={12} md={3}>
-                        
-                            left
-                        
-                    </Grid>
+                <Grid container style={styles.grid}>
+                    <LeftPanel />
                     <Grid container item xs={12} md={9} spacing={2}>
                         {this.props.reduxState.paintingListReducer.map(painting => <ArtItem key={painting.id} painting={painting} />)}
                     </Grid>
@@ -65,7 +65,7 @@ class ArtList extends Component {
                         ).price
                     } */}
 
-                <Link to="/cart"><Button style={styles.nextPage} variant="contained" color="secondary">Go to Cart</Button></Link>
+                <RouterLink to="/cart"><Button style={styles.nextPage} variant="contained" color="secondary">Go to Cart</Button></RouterLink>
 
             </div>
         )

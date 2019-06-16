@@ -1,10 +1,29 @@
 header {
     background-color: #607d8b;
-    min-height: 70px;
-    padding: 20px;
+    min-height: 90px;
+    padding-top: 30px;
+    padding-bottom: 20px;
     color: white;
+}
+
+h1 {
+    text-align: left;
+    margin-left: 50px;
 }
 
 div {
     margin-top: 0;
+}
+
+nav {
+    text-align: right;
+    margin-right: 40px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    margin-left: 50px;
+    text-align: right;
+    color: white;
 }
