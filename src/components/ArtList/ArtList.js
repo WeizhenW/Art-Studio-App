@@ -44,11 +44,18 @@ class ArtList extends Component {
         this.refreshList();
     }
     render() {
-        return(
+        return (
             <div>
-                <Grid container style={styles.grid} spacing={3}>
-                        {this.props.reduxState.paintingListReducer.map( painting => <ArtItem key={painting.id} painting={painting} />)}
-                </Grid>                
+                <Grid container style={styles.grid} spacing={2}>
+                    <Grid container item xs={12} md={3}>
+                        
+                            left
+                        
+                    </Grid>
+                    <Grid container item xs={12} md={9} spacing={2}>
+                        {this.props.reduxState.paintingListReducer.map(painting => <ArtItem key={painting.id} painting={painting} />)}
+                    </Grid>
+                </Grid>
                 <br />
                 {/* {this.props.reduxState.cartReducer.length === 0? 
                         0 
@@ -58,7 +65,7 @@ class ArtList extends Component {
                         ).price
                     } */}
 
-                <Link to="/cart"><Button style={styles.nextPage} variant="contained" color="secondary">Go to Cart</Button></Link> 
+                <Link to="/cart"><Button style={styles.nextPage} variant="contained" color="secondary">Go to Cart</Button></Link>
 
             </div>
         )
