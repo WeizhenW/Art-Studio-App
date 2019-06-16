@@ -20,6 +20,13 @@ class PurchaseSummary extends Component {
 
                 {this.props.reduxState.cartReducer.map(painting => <CartItem key={painting.id} painting={painting} />)}
 
+                {this.props.reduxState.cartReducer.length === 0? 
+                        0 
+                        : 
+                        this.props.reduxState.cartReducer.reduce((acc, current) => (
+                            {price: Number(acc.price) + Number(current.price)})
+                        ).price
+                    }
             </div>
         )
     }

@@ -35,6 +35,16 @@ class ArtList extends Component {
                     {this.props.reduxState.paintingListReducer.map( painting => <ArtItem key={painting.id} painting={painting} />)}
                 </ul>
 
+                <br />
+
+                {this.props.reduxState.cartReducer.length === 0? 
+                        0 
+                        : 
+                        this.props.reduxState.cartReducer.reduce((acc, current) => (
+                            {price: Number(acc.price) + Number(current.price)})
+                        ).price
+                    }
+
                 <Link to="/cart"><button>Next Step</button></Link> 
 
             </div>
