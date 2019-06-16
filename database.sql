@@ -20,9 +20,10 @@ VALUES ('Wide Bird','Fine Art Print of original oil painting Wild bird animal 8X
 
 CREATE TABLE "orders" (
 	"id" SERIAL PRIMARY KEY,
-	"customer_name" VARCHAR (1000) NOT NULL,
-	"street_address" VARCHAR(1000) NOT NULL,
+	"name" VARCHAR (1000) NOT NULL,
+	"street" VARCHAR(1000) NOT NULL,
 	"city" VARCHAR(1000) NOT NULL,
+	"state" VARCHAR(20) NOT NULL,
 	"zip" VARCHAR(20) NOT NULL,
 	"type" VARCHAR(100) NOT NULL,
 	"total" NUMERIC (20, 2) NOT NULL,

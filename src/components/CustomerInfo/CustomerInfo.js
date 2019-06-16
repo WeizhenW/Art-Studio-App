@@ -14,6 +14,7 @@ class CustomerInfo extends Component {
             }
         })
     }
+
     render() {
         return(
             <div>
@@ -22,7 +23,13 @@ class CustomerInfo extends Component {
                 <input onChange={this.handleChangeFor('city')} placeholder="city" />
                 <input onChange={this.handleChangeFor('state')} placeholder="state" />
                 <input onChange={this.handleChangeFor('zip')} placeholder="zip" />
-            
+                <br />
+                <label>Standard shipping</label>
+                <input name="type" type="radio" value="standard" onClick={this.handleChangeFor('type')}></input>
+                <br />
+                <label>Express shipping</label>
+                <input name="type" type="radio" value="express" onClick={this.handleChangeFor('type')}></input>
+                <br />
                 <Link to="/summary"><button>Next Step</button></Link> 
 
             </div>
