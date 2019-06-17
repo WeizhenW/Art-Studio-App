@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import CartItem from '../CartItem/CartItem';
+import { Link } from 'react-router-dom';
+
+
 
 //material ui
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+
 
 const styles = {
     div: {
@@ -19,11 +25,34 @@ const styles = {
         fontSize: "20px",
         textAlign: "right",
         marginRight: "100px",
-    }
+    },
+    nextPage: {
+        height: "50px",
+        maxWidth: "200px",
+        marginBottom: "100px",
+    },
 }
 
 
 class PurchaseSummary extends Component {
+
+    handlePayment = () => {
+        axios({
+            method: 'POST',
+            url: '/order',
+            data: {
+                name: this.props.reduxState.customerInfoReducer.name,
+                street: this.props.reduxState.customerInfoReducer.street,
+                city: this.props.reduxState.customerInfoReducer.city,
+                zip: this.props.reduxState.customerInfoReducer.zip,
+                state: this.props.reduxState.customerInfoReducer.state,
+                type: this.props.reduxState.customerInfoReducer.type,
+                total: this.props.reduxState.cartReducer.reduce((acc, current) => (
+                    {price: Number(acc.price) + Number(current.price)}).price
+                ),
+            }
+        })
+    }
     render() {
         return(
             <div style={styles.div}>
@@ -68,6 +97,8 @@ class PurchaseSummary extends Component {
                 </h4>
                     </Grid>
                 </Grid>
+                <Link to="/"><Button onClick={this.handlePayment} variant="contained" style={styles.nextPage} color="secondary">Payment</Button></Link>
+
             </div>
         )
     }

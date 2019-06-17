@@ -13,7 +13,7 @@ const paintingRouter = require('./routes/painting.router.js');
 app.use('/painting', paintingRouter);
 
 const orderRouter = require('./routes/order.router.js');
-app.use('/api/order', orderRouter);
+app.use('/order', orderRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

@@ -13,7 +13,6 @@ import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 
 const styles = {
     container: {
@@ -53,30 +52,35 @@ class CustomerInfo extends Component {
                             <InputLabel htmlFor="name" >Customer Name</InputLabel>
                             <OutlinedInput
                                 id="id"
+                                value={this.props.reduxState.customerInfoReducer.name}
                                 onChange={this.handleChangeFor('name')} />
                         </FormControl>
                         <FormControl style={styles.formControl} >
-                            <InputLabel htmlFor="street" >Street Address</InputLabel>
+                            <InputLabel htmlFor="street"  >Street Address</InputLabel>
                             <OutlinedInput
                                 id="street"
+                                value={this.props.reduxState.customerInfoReducer.street}
                                 onChange={this.handleChangeFor('street')} />
                         </FormControl>
-                        <FormControl style={styles.formControl}>
+                        <FormControl style={styles.formControl} >
                             <InputLabel htmlFor="city" >City</InputLabel>
                             <OutlinedInput
                                 id="city"
+                                value={this.props.reduxState.customerInfoReducer.city}
                                 onChange={this.handleChangeFor('city')} />
                         </FormControl>
                         <FormControl style={styles.formControl}>
                             <InputLabel htmlFor="state" >State</InputLabel>
                             <OutlinedInput
                                 id="state"
+                                value={this.props.reduxState.customerInfoReducer.state}
                                 onChange={this.handleChangeFor('state')} />
                         </FormControl>
                         <FormControl style={styles.formControl}>
                             <InputLabel htmlFor="zip" >Zip Code</InputLabel>
                             <OutlinedInput
                                 id="zip"
+                                value={this.props.reduxState.customerInfoReducer.zip}
                                 onChange={this.handleChangeFor('zip')} />
                         </FormControl>
                     </Grid>
