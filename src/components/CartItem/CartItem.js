@@ -25,7 +25,7 @@ class CartItem extends Component {
                         {this.props.painting.description}
                     </TableCell>
                     <TableCell>
-                        {this.props.painting.price}
+                        $ {this.props.painting.price}
                     </TableCell>
                 </TableRow>
         )

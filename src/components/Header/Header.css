@@ -3,12 +3,12 @@ header {
     min-height: 90px;
     padding-top: 30px;
     padding-bottom: 20px;
-    color: white;
 }
 
 h1 {
     text-align: left;
     margin-left: 50px;
+    color: white;
 }
 
 div {
@@ -18,12 +18,19 @@ div {
 nav {
     text-align: right;
     margin-right: 40px;
-    font-weight: bold;
 }
 
 a {
     text-decoration: none;
     margin-left: 50px;
     text-align: right;
+    font-weight: 400;
+    font-size: 16px;
     color: white;
+}
+
+.active {
+    color: #ef5350;
+    font-weight: 600;
+    font-size: 18px;
 }

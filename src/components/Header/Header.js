@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './Header.css';
-import { HashRouter as Router, Link } from 'react-router-dom';
-
+import { HashRouter as Router, NavLink } from 'react-router-dom';
 
 class Header extends Component {
-    render() {
+    render() {   
         return (
             <div>
                 <header>
-                    <h1>Art Studio</h1>
+                    <h1>The Art Studio</h1>
                     <nav>
                         <Router>
-                            <Link to="/">Home</Link>
-                            <Link to="/artlist" component={Link}>Art List</Link>
-                            <Link to="/cart">Cart</Link>
-                            <Link to="/customerinfo">Customer Information</Link>
-                            <Link to="/summary">Purchase Summary</Link>
+                            <NavLink activeClassName="active" exact to="/">Home</NavLink>
+                            <NavLink activeClassName="active" to="/artlist" >Art List</NavLink >
+                            <NavLink activeClassName="active" to="/cart">Cart</NavLink>
+                            <NavLink activeClassName="active" to="/customerinfo">Customer Information</NavLink>
+                            <NavLink activeClassName="active" to="/summary">Purchase Summary</NavLink>
                         </Router>
-                        
                     </nav>
                 </header>
             </div>
@@ -25,4 +23,6 @@ class Header extends Component {
     }
 }
 
-export default Header;
+
+
+export default (Header);

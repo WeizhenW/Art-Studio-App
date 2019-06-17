@@ -10,8 +10,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-
-
 const styles = {
     avatar: {        
         margin: "50px  auto",
@@ -51,7 +49,13 @@ class LeftPanel extends Component {
                         About me:
                     </Typography>
                     <Typography style={styles.typography} component="p">
-                    I was a chemistry student. After working in industry for a while, I struggle with myself for a really long time. I try to get my mind straight and I finally realized that I want to create in terms of painting and drawing. Although I know that I start it late, I want to keep moving forward. Even just a little bit everyday. I welcome you all to visit my website at http://yuezengartstudio.com I share my thoughts and tips for art and crafts. Thank you very much~
+                    I was a chemistry student. After working in industry for a while, I struggle with myself for a really long time. 
+                    <br />
+                    I try to get my mind straight and I finally realized that I want to create in terms of painting and drawing. Although I know that I start it late, I want to keep moving forward. Even just a little bit everyday. 
+                    <br />
+                    I welcome you all to visit my website where I share my thoughts and tips for art and crafts. 
+                    <br />
+                    Thank you very much~
 
                     </Typography>
                 </Paper>
