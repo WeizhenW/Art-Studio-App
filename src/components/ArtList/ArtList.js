@@ -10,8 +10,6 @@ import { Link as RouterLink } from 'react-router-dom';
 //material ui
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 
 
 const styles = {
